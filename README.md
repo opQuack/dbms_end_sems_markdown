@@ -35,5 +35,20 @@ Create table Item_Transaction(
     Description varchar(100),
     Quantity INTEGER
 );
+
+Create or replace procedure update_balance(x IN INTEGER, y IN INTEGER, z IN varchar)
+IS
+present INTEGER;
+BEGIN
+    Select count(*) into present from Item_Master where Itemid = x;
+    if (present > 0) then
+        Update Item_Master
+        set Bal_stock = Bal_stock - y;
+    else
+        Insert into Item_Master values(x, z, y);
+    end if;
+END;
+/
 ```
+
 
