@@ -57,6 +57,14 @@ BEGIN
     update_balance(:NEW.Itemid, :NEW.Quantity, :NEW.Description);
 END;
 /
+
+insert INTO Item_Transaction values( 1 ,' dry ', 100 );
+insert INTO Item_Transaction values( 2 ,' wet ', 12 );
+insert INTO Item_Transaction values( 1 ,' dry ', 50 );
+insert INTO Item_Transaction values( 3 ,' wet ', 60 );
+insert INTO Item_Transaction values( 4 ,' dry ', 50 );
+insert INTO Item_Transaction values( 2 ,' wet ', 6 );
+insert INTO Item_Transaction values( 3 ,' wet ', 5 );
 ```
 
 
