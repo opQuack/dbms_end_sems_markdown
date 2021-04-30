@@ -43,7 +43,7 @@ BEGIN
     Select count(*) into present from Item_Master where Itemid = x;
     if (present > 0) then
         Update Item_Master
-        set Bal_stock = Bal_stock - y;
+        set Bal_stock = Bal_stock + y;
     else
         Insert into Item_Master values(x, z, y);
     end if;
