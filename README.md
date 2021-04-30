@@ -73,7 +73,7 @@ CREATE table temp(
     file_data BFILE
 );
 CREATE OR REPLACE DIRECTORY
-    direct AS '/home'
+    direct AS 'C:/home'
 /
 CREATE OR REPLACE PROCEDURE Load_into_blob
 AS
