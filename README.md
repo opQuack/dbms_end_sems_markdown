@@ -97,6 +97,25 @@ BEGIN
     DBMS_LOB.CLOSE(lb);
 END;
 /
+
+DECLARE
+    l_lob BLOB;
+    l_bfile bfile;
+    size NUMBER;
+  BEGIN
+    l_bfile := bfilename( 'direct', 'smile.jpg' );
+ 
+    SELECT file_data INTO l_lob FROM temp WHERE id=2;
+ 
+    Size := dbms_lob.getlength( l_bfile );
+    dbms_lob.fileopen( l_bfile ,dbms_lob.file_readonly);
+    dbms_lob.loadfromfile( l_lob, l_bfile ,amt);
+ 
+    dbms_output.put_line('length is: '||dbms_lob.getlength( l_bfile ));
+    dbms_output.put_line('Load: '||dbms_lob.getlength(l_lob));
+    dbms_lob.fileclose( l_bfile );
+ END;
+ /
 ```
 
 
