@@ -73,8 +73,31 @@ CREATE table temp(
     file_data BFILE
 );
 CREATE OR REPLACE DIRECTORY
-    BLOB_DIR AS '/home'
+    direct AS '/home'
+/
+CREATE OR REPLACE PROCEDURE Load_into_blob
+AS
+
+    lb  BLOB;
+    lf  BFILE := BFILENAME('direct', '/pics');
+BEGIN
+    INSERT INTO temp (id, file_data)
+        VALUES (1, empty_blob())
+        RETURNING file_data INTO lBlob;
+
+    DBMS_LOB.OPEN(lFile, DBMS_LOB.LOB_READONLY);
+
+    DBMS_LOB.OPEN(lBlob, DBMS_LOB.LOB_READWRITE);
+
+    DBMS_LOB.LOADFROMFILE(DEST_LOB => lb,
+                          SRC_LOB  => lf,
+                          AMOUNT   => DBMS_LOB.GETLENGTH(lf));
+
+    DBMS_LOB.CLOSE(lf);
+    DBMS_LOB.CLOSE(lb);
+END;
 /
 ```
+
 
 
