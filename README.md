@@ -72,7 +72,9 @@ CREATE table temp(
     key INTEGER PRIMARY KEY,
     file_data BFILE
 );
-
+CREATE OR REPLACE DIRECTORY
+    BLOB_DIR AS '/home'
+/
 ```
 
 
