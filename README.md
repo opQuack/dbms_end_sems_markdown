@@ -31,7 +31,7 @@ Create table Item_Master(
 );
 
 Create table Item_Transaction(
-    Itemid INTEGER PRIMARY KEY,
+    Itemid INTEGER,
     Description varchar(100),
     Quantity INTEGER
 );
