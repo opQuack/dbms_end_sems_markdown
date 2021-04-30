@@ -67,4 +67,12 @@ insert INTO Item_Transaction values( 2 ,' wet ', 6 );
 insert INTO Item_Transaction values( 3 ,' wet ', 5 );
 ```
 
+```
+CREATE table temp(
+    key INTEGER PRIMARY KEY,
+    file_data BFILE
+);
+
+```
+
 
