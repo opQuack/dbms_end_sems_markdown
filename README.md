@@ -49,6 +49,14 @@ BEGIN
     end if;
 END;
 /
+
+Create or replace Trigger check_store
+Before Insert on Item_Transaction
+for each row
+BEGIN
+    update_balance(:NEW.Itemid, :NEW.Quantity, :NEW.Description);
+END;
+/
 ```
 
 
