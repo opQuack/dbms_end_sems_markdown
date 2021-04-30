@@ -22,3 +22,18 @@ insert INTO Transaction values( 6 ,' cold drinks ', 20 , 1 ,0 );
 insert INTO Transaction values( 7 ,' sev ', 5 , 7 , 0);
 ```
 
+
+```
+Create table Item_Master(
+    Itemid INTEGER PRIMARY KEY,
+    Description varchar(100),
+    Bal_Stock INTEGER
+);
+
+Create table Item_Transaction(
+    Itemid INTEGER PRIMARY KEY,
+    Description varchar(100),
+    Quantity INTEGER
+);
+```
+
